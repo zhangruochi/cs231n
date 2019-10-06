@@ -128,7 +128,7 @@ class TwoLayerNet(object):
         grads['b2'] = np.sum(dscores, axis = 0)
 
         dh = dscores.dot(W2.T)
-        dh_ReLu = (h_output > 0) * dh
+        dh_ReLu = (h_output > 0) * dh  ## local gradient
         grads['W1'] = X.T.dot(dh_ReLu) + reg * W1
         grads['b1'] = np.sum(dh_ReLu, axis = 0)
 
